@@ -55,7 +55,8 @@ module ReactOnRails
       server_renderer_timeout: 20,
       skip_display_none: false,
       webpack_generated_files: [],
-      rendering_extension: nil
+      rendering_extension: nil,
+      npm_build_command: "npm run build"
     )
   end
 
@@ -65,7 +66,7 @@ module ReactOnRails
                   :logging_on_server, :server_renderer_pool_size,
                   :server_renderer_timeout, :raise_on_prerender_error,
                   :skip_display_none, :generated_assets_dirs, :generated_assets_dir,
-                  :webpack_generated_files, :rendering_extension
+                  :webpack_generated_files, :rendering_extension, :npm_build_command
 
     def initialize(server_bundle_js_file: nil, prerender: nil, replay_console: nil,
                    trace: nil, development_mode: nil,
@@ -73,10 +74,11 @@ module ReactOnRails
                    server_renderer_timeout: nil, raise_on_prerender_error: nil,
                    skip_display_none: nil, generated_assets_dirs: nil,
                    generated_assets_dir: nil, webpack_generated_files: nil,
-                   rendering_extension: nil)
+                   rendering_extension: nil, npm_build_command: nil)
       self.server_bundle_js_file = server_bundle_js_file
       self.generated_assets_dirs = generated_assets_dirs
       self.generated_assets_dir = generated_assets_dir
+      self.npm_build_command = npm_build_command
 
       self.prerender = prerender
       self.replay_console = replay_console
